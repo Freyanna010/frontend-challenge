@@ -5,16 +5,16 @@ import axios from "axios";
 
 export const fetchCatsData = createAsyncThunk<
   Cat[],
-  void,
+  number,
   { rejectValue: string }
->("cats/fetchCatsData", async (_, { rejectWithValue }) => {
+>("cats/fetchCatsData", async (limit, { rejectWithValue }) => {
   try {
     const response = await axios.get(API_URL, {
       headers: {
         "x-api-key": API_KEY,
       },
       params: {
-        limit: 100,
+        limit,
       },
     });
     return response.data;

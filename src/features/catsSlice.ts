@@ -2,7 +2,6 @@ import { createSlice, PayloadAction,} from "@reduxjs/toolkit";
 import {fetchCatsData } from "./catsThunks";
 import { Cat } from "@/types/types";
 
-
 interface CatsState {
 cats: Cat[];
 isCatsLoading: boolean
