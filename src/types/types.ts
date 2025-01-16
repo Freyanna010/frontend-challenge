@@ -6,3 +6,8 @@ export interface Cat {
     breeds?: string[];
     favourite?: object;
   } 
+  export interface CatsState {
+    cats: Cat[];
+    isCatsLoading: boolean
+    catsError: null | string
+    }

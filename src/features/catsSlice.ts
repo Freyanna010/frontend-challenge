@@ -1,12 +1,6 @@
-import { createSlice, PayloadAction,} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {fetchCatsData } from "./catsThunks";
-import { Cat } from "@/types/types";
-
-interface CatsState {
-cats: Cat[];
-isCatsLoading: boolean
-catsError: null | string
-}
+import { CatsState } from "@/types/types";
 
 const initialState: CatsState = {
   cats: [],
