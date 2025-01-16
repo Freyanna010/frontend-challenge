@@ -6,9 +6,9 @@ import { Provider as StoreProvider } from "react-redux";
 import { store } from "./store/store.ts";
 
 createRoot(document.getElementById("root")!).render(
-  <StoreProvider store={store}>
-    <StrictMode>
+  <StrictMode>
+    <StoreProvider store={store}>
       <App />
-    </StrictMode>
-  </StoreProvider>
+    </StoreProvider>
+  </StrictMode>
 );
