@@ -1,26 +1,36 @@
 import { useEffect } from "react";
-import "./App.css";
+import "./App.scss";
 import { AppDispatch, RootState } from "./store/store";
 import { fetchCatsData } from "./features/catsThunks";
 import { useDispatch, useSelector } from "react-redux";
 import CatCardsList from "./component/CatCardsList/CatCardsList";
+import Layout, { Content, Header } from "antd/es/layout/layout";
+import { Button } from "antd";
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
   const { cats } = useSelector((state: RootState) => state.catsSlice);
 
   useEffect(() => {
-    console.log('Dispatch fetchCatsData');
+    // TODO: убрать
+    console.log("Dispatch из useEffect в app");
     dispatch(fetchCatsData(50));
-  }, [dispatch]);
+  }, []);
 
-  // TODO:убрат
+  // TODO:убрать
   useEffect(() => {
-    console.log(cats);
+    console.log("useEffect получил котиков в app", cats);
   }, [cats]);
 
   return (
-    <CatCardsList cats={cats}/>
+    <>
+      <Layout className="layout">
+        <Header className="header"><Button type="text">Все котики</Button></Header>
+        <Content className="content">
+          <CatCardsList cats={cats} />
+        </Content>
+      </Layout>
+    </>
   );
 }
 

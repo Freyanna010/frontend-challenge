@@ -21,6 +21,8 @@ const catsSlice = createSlice({
         state.catsError = null;
       })
       .addCase(fetchCatsData.fulfilled, (state, action) => {
+        // TODO: убрать 
+        console.log('сработал fulfilled в slice');
         state.isCatsLoading = false;
         state.cats = action.payload;
       })

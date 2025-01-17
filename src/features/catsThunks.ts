@@ -9,6 +9,8 @@ export const fetchCatsData = createAsyncThunk<
   { rejectValue: string }
 >("cats/fetchCatsData", async (limit, { rejectWithValue }) => {
   try {
+    // TODO: убрать 
+    console.log('Запрос котиков в thunks');
     const response = await axios.get(API_URL, {
       headers: {
         "x-api-key": API_KEY,

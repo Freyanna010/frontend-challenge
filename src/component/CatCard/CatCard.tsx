@@ -1,22 +1,40 @@
-import { Card } from 'antd';
-import classes from './CatCard.module.scss'
-import { FC } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
+import { Button, Card } from "antd";
+import classes from "./CatCard.module.scss";
+import { FC, useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+// import { HeartFilled, HeartOutlined } from "@ant-design/icons";
+import heartFilled from "@assets/heartFilled.png";
+import heartOutlined from "@assets/heartOutlined.png";
 
 type Props = {
-   id: string,
-   img: string
-}
+  id: string;
+  img: string;
+};
 
 const CatCard: FC<Props> = ({ id, img }) => {
-   const isCatsLoading = useSelector((state: RootState) => state.catsSlice.isCatsLoading);
- 
-   return (
-     <Card hoverable loading={isCatsLoading} className={classes.catCard}>
-       <img alt="🐱" src={img} />
-     </Card>
-   );
- };
- 
+  const isCatsLoading = useSelector(
+    (state: RootState) => state.catsSlice.isCatsLoading
+  );
+
+  const [isLiked, setIsLiked] = useState(false);
+
+  const handleLike = (id: string) => {
+    setIsLiked(!isLiked);
+    console.log(`Liked ${id}`);
+  };
+
+  return (
+    <div className={classes.catCard}>
+      <img alt="🐱" src={img} />
+      <button className={classes.likeButton} onClick={() => handleLike(id)}>
+        <img
+          className={classes.heartIcon}
+          src={isLiked ? heartFilled : heartOutlined}
+        />
+      </button>
+    </div>
+  );
+};
+
 export default CatCard;
