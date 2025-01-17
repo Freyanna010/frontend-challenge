@@ -16,10 +16,30 @@ body, html {
   z-index: 1;
   width: 100%;
   display: flex;
-  padding: 0px;
+  padding:0px 0px 0px 62px;
   background-color: #2196F3;
 }
 
 .content {
   padding: 36px 62px 102px 62px;
+
+
+ 
+}
+
+.button{
+  height: 100%;
+  color: #fff;
+  font-size: 14px;
+  line-height: 21px;
+  border-radius: 0px;
+  padding: 23px;
+  background-color: #2196F3;
+  align-items: center;
+  justify-content: center;
+
+
+  &:hover{
+    background-color: #1E88E5;
+  }
 }

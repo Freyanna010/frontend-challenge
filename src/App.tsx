@@ -5,7 +5,7 @@ import { fetchCatsData } from "./features/catsThunks";
 import { useDispatch, useSelector } from "react-redux";
 import CatCardsList from "./component/CatCardsList/CatCardsList";
 import Layout, { Content, Header } from "antd/es/layout/layout";
-import { Button } from "antd";
+import CustomButton from "./component/ui/CustomButton";
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -25,7 +25,14 @@ function App() {
   return (
     <>
       <Layout className="layout">
-        <Header className="header"><Button type="text">Все котики</Button></Header>
+        <Header className="header">
+          <CustomButton variant={"text"} isActive={true}>
+            Все котики
+          </CustomButton>
+          <CustomButton variant={"text"} isActive={false}>
+            Любимые котики
+          </CustomButton>
+        </Header>
         <Content className="content">
           <CatCardsList cats={cats} />
         </Content>

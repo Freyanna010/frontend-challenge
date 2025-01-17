@@ -6,6 +6,7 @@ import { RootState } from "@/store/store";
 // import { HeartFilled, HeartOutlined } from "@ant-design/icons";
 import heartFilled from "@assets/heartFilled.png";
 import heartOutlined from "@assets/heartOutlined.png";
+import CustomButton from "../ui/CustomButton";
 
 type Props = {
   id: string;
@@ -27,12 +28,17 @@ const CatCard: FC<Props> = ({ id, img }) => {
   return (
     <div className={classes.catCard}>
       <img alt="🐱" src={img} />
-      <button className={classes.likeButton} onClick={() => handleLike(id)}>
+
+      <CustomButton
+        variant={"icon"}
+        className={classes.likeButton}
+        onClick={() => handleLike(id)}
+      >
         <img
           className={classes.heartIcon}
           src={isLiked ? heartFilled : heartOutlined}
         />
-      </button>
+      </CustomButton>
     </div>
   );
 };
