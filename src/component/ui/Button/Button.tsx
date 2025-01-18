@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { FC } from "react";
-import classes from "./CustomButton.module.scss";
+import classes from "./Button.module.scss";
 
 type Props = {
   variant: "text" | "icon";

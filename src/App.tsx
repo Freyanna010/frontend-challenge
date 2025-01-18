@@ -3,7 +3,7 @@ import { FC, useEffect } from "react";
 import "./App.scss";
 import CardList from "./component/CardList/CardList";
 import Layout, { Content, Header } from "antd/es/layout/layout";
-import CustomButton from "./component/ui/CustomButton";
+import CustomButton from "./component/ui/Button";
 
 const App: FC = () => {
   return (

@@ -1,9 +1,9 @@
-import { Card as CardAntd } from "antd";
+import { Card as AntdCard } from "antd";
 import classes from "./Card.module.scss";
 import { FC } from "react";
 import heartFilled from "@assets/heartFilled.png";
 import heartOutlined from "@assets/heartOutlined.png";
-import CustomButton from "../ui/CustomButton";
+import CustomButton from "../ui/Button";
 
 type Props = {
   img: string;
@@ -12,7 +12,7 @@ type Props = {
 };
 
 const Card: FC<Props> = ({ img, isLiked, onLike}) => (
-  <CardAntd className={classes.catCard}>
+  <AntdCard className={classes.catCard}>
     <img  src={img} />
     <CustomButton
       variant="icon"
@@ -24,7 +24,7 @@ const Card: FC<Props> = ({ img, isLiked, onLike}) => (
         src={isLiked ? heartFilled : heartOutlined}
       />
     </CustomButton>
-  </CardAntd>);
+  </AntdCard>);
 
 
 
