@@ -6,10 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 import CatCardsList from "./component/CardList/CardList";
 import Layout, { Content, Header } from "antd/es/layout/layout";
 import CustomButton from "./component/ui/CustomButton";
+import Spin from "antd/es/spin";
+import { LoadingOutlined } from "@ant-design/icons";
 
-  const App:FC = () => {
+const App: FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { cats } = useSelector((state: RootState) => state.catsSlice);
+  const { cats, isCatsLoading } = useSelector(
+    (state: RootState) => state.catsSlice
+  );
 
   useEffect(() => {
     console.log("Dispatch из useEffect в app");
@@ -28,11 +32,25 @@ import CustomButton from "./component/ui/CustomButton";
           </CustomButton>
         </Header>
         <Content className="content">
-          <CatCardsList cats={cats} />
+          {isCatsLoading ? (
+            <Spin 
+              indicator={
+                <LoadingOutlined
+                  style={{
+                    fontSize: 60,
+                    borderRadius: "50%",
+                  }}
+                  spin
+                />
+              }
+            />
+          ) : (
+            <CatCardsList cats={cats} />
+          )}
         </Content>
       </Layout>
     </>
   );
-}
+};
 
 export default App;

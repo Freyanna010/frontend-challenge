@@ -13,6 +13,7 @@ type Props = {
 };
 
 const CatCard: FC<Props> = ({ id, img }) => {
+  // TODO: вынести
   const isCatsLoading = useSelector(
     (state: RootState) => state.catsSlice.isCatsLoading
   );
@@ -27,7 +28,7 @@ const CatCard: FC<Props> = ({ id, img }) => {
   return (
     <Card className={classes.catCard} loading={isCatsLoading}>
       <img alt="🐱" src={img} />
-      <CustomButton variant="icon" className={classes.likeButton}>
+      <CustomButton variant="icon" className={classes.likeButton} onClick={() => handleLike(id)}>
       <img
           className={classes.heartIcon}
           src={isLiked ? heartFilled : heartOutlined}
