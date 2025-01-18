@@ -12,7 +12,7 @@ import { LoadingOutlined } from "@ant-design/icons";
 
 const App: FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { cats, isCatsLoading } = useSelector(
+  const { cats, isLoading: isCatsLoading } = useSelector(
     (state: RootState) => state.catsSlice
   );
 

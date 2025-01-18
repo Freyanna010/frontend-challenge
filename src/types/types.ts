@@ -8,6 +8,7 @@ export interface Cat {
   } 
   export interface CatsState {
     cats: Cat[];
-    isCatsLoading: boolean
+    isLoading: boolean
     catsError: null | string
+    favoriteIds: string[]
     }

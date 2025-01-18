@@ -1,4 +1,4 @@
-import { Card } from "antd";
+import { Card  as CardAntd} from "antd";
 import classes from "./Card.module.scss";
 import { FC, useState } from "react";
 import { useSelector } from "react-redux";
@@ -12,10 +12,10 @@ type Props = {
   img: string;
 };
 
-const CatCard: FC<Props> = ({ id, img }) => {
+const Card: FC<Props> = ({ id, img }) => {
   // TODO: вынести
   const isCatsLoading = useSelector(
-    (state: RootState) => state.catsSlice.isCatsLoading
+    (state: RootState) => state.catsSlice.isLoading
   );
 
   const [isLiked, setIsLiked] = useState(false);
@@ -26,7 +26,7 @@ const CatCard: FC<Props> = ({ id, img }) => {
   };
 
   return (
-    <Card className={classes.catCard} loading={isCatsLoading}>
+    <CardAntd className={classes.catCard} loading={isCatsLoading}>
       <img alt="🐱" src={img} />
       <CustomButton variant="icon" className={classes.likeButton} onClick={() => handleLike(id)}>
       <img
@@ -34,8 +34,8 @@ const CatCard: FC<Props> = ({ id, img }) => {
           src={isLiked ? heartFilled : heartOutlined}
         />
       </CustomButton>
-    </Card>
+    </CardAntd>
   );
 };
 
-export default CatCard;
+export default Card;
