@@ -10,14 +10,19 @@ type Props = {
     activeTab: string
 }
 
-const Header: FC<Props> = ({}) =>  (
+const Header: FC<Props> = ({setActiveTab, tabs, activeTab}) =>  (
     <AntdHeader className={classes.header}>
-    <Button variant="text" isActive={true}>
-      Все котики
-    </Button>
-    <Button variant="text" isActive={false}>
-      Любимые котики
-    </Button>
+        {
+            tabs.map(({value, title}) => (
+                <Button variant='text' 
+                isActive={activeTab === value}
+                
+                onClick={() => setActiveTab(value)}>
+                    {title}
+                </Button>
+            ))
+        }
+
   </AntdHeader>
 )
 

@@ -10,7 +10,6 @@ export type Tab = {
   title: string;
 }
 
-
 const TABS: Tab[] = [
   { title: 'Все котики', value: 'all' },
   { title: 'Любимые котики', value: 'favorite' },
@@ -27,7 +26,7 @@ const [activeTab, setActiveTab] = useState(INITIAL_ACTIVE_TAB)
       <Layout className="layout">
         <Header setActiveTab={setActiveTab} tabs={TABS} activeTab={activeTab}  />
         <Content className="content">
-         {activeTab==="all" && <CardList /> } 
+         {activeTab==="all" && <CardList /> }
         </Content>
       </Layout>
     </>
