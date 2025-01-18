@@ -39,6 +39,6 @@ const catsSlice = createSlice({
 });
 
 export const {
-
+  toggleFavorite
 } = catsSlice.actions;
 export default catsSlice.reducer;
