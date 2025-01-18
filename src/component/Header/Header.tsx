@@ -1,9 +1,16 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Header as AntdHeader } from "antd/es/layout/layout";
 import classes from  "./Header.module.scss"
 import Button from '../ui/Button';
+import { Tab } from '@/App';
 
-const Header: FC = () =>  (
+type Props = {
+    setActiveTab(tab: string): void;
+    tabs: Tab[];
+    activeTab: string
+}
+
+const Header: FC<Props> = ({}) =>  (
     <AntdHeader className={classes.header}>
     <Button variant="text" isActive={true}>
       Все котики
