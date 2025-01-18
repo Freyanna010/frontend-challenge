@@ -24,14 +24,15 @@ const CardList: FC = () => {
 
   if (isLoading) {
     return (
-      <Spin className={classes.spin}
+      <Spin size="large" className={classes.spin}
         indicator={
-          <LoadingOutlined spin style={{ fontSize: 60, borderRadius: "50%" }} />
+          <LoadingOutlined spin  />
         }
       />
     );
   }
   return (
+    // TODO: адаптив
     <Flex wrap gap={48} justify="space-between" style={{ width: "1317px" }}>
       {cats.map(({ id, url }) => (
         <Card
