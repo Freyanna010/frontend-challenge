@@ -6,6 +6,7 @@ import { AppDispatch, RootState } from "@/store/store";
 import { LoadingOutlined } from "@ant-design/icons";
 import { fetchCatsData } from "@/features/catsThunks";
 import { toggleFavorite } from "@/features/catsSlice";
+import classes from  "./CardList.module.scss"
 
 const CardList: FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -23,7 +24,7 @@ const CardList: FC = () => {
 
   if (isLoading) {
     return (
-      <Spin
+      <Spin className={classes.spin}
         indicator={
           <LoadingOutlined spin style={{ fontSize: 60, borderRadius: "50%" }} />
         }
@@ -32,12 +33,12 @@ const CardList: FC = () => {
   }
   return (
     <Flex wrap gap={48} justify="space-between" style={{ width: "1317px" }}>
-      {cats.map(() => (
+      {cats.map(({ id, url }) => (
         <Card
-          img={cat.url}
-          key={cat.id}
-          isLiked={favoriteIds.includes(cat.id)}
-          onLike={() => likeHandler(cat.id)}
+          img={url}
+          key={id}
+          isLiked={favoriteIds.includes(id)}
+          onLike={() => likeHandler(id)}
         />
       ))}
     </Flex>
