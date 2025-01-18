@@ -15,13 +15,11 @@ const CardList: FC = () => {
 
   useEffect(() => {
     dispatch(fetchCatsData());
-  }, []); 
+  }, []);
 
-const likeHandler = (id: string) => {
-  dispatch(toggleFavorite(id))
-}
-
-console.log(favoriteIds);
+  const likeHandler = (id: string) => {
+    dispatch(toggleFavorite(id));
+  };
 
   if (isLoading) {
     return (
@@ -31,11 +29,16 @@ console.log(favoriteIds);
         }
       />
     );
-  }  
+  }
   return (
     <Flex wrap gap={48} justify="space-between" style={{ width: "1317px" }}>
-      {cats.map((cat) => (
-        <Card img={cat.url} key={cat.id} isLiked={favoriteIds.includes(cat.id)} onLike={() => likeHandler(cat.id)}/>
+      {cats.map(() => (
+        <Card
+          img={cat.url}
+          key={cat.id}
+          isLiked={favoriteIds.includes(cat.id)}
+          onLike={() => likeHandler(cat.id)}
+        />
       ))}
     </Flex>
   );
