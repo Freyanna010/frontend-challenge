@@ -1,5 +1,5 @@
 import { Cat } from "@/types/types";
-import CatCard from "../CatCard/CatCard";
+import CatCard from "../Card/Card";
 import { FC } from "react";
 import { Flex } from "antd";
 

@@ -3,20 +3,26 @@ import { Cat } from "@/types/types";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+type Params = {
+  limit?: number;
+  offset?: number;
+}
+
 export const fetchCatsData = createAsyncThunk<
   Cat[],
-  number,
+  Params | undefined,
   { rejectValue: string }
->("cats/fetchCatsData", async (limit, { rejectWithValue }) => {
+>("cats/fetchCatsData", async (params, { rejectWithValue }) => {
   try {
-    // TODO: убрать 
-    console.log('Запрос котиков в thunks');
+    const { limit = 50, offset } = params || {}
+
     const response = await axios.get(API_URL, {
       headers: {
         "x-api-key": API_KEY,
       },
       params: {
         limit,
+        offset,
       },
     });
     return response.data;

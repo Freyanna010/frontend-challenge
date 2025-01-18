@@ -9,12 +9,11 @@
   border: none;
 
   &:hover {
-    transform: scale(1.137);
+    transform: scale(1.137); 
     z-index: 1;
 
     .likeButton {
-      visibility: visible;
-      opacity: 1;
+      display: block;
     }
   }
 
@@ -27,11 +26,23 @@
   }
 
   .likeButton {
-    visibility: hidden;
-    opacity: 0;
+    display: none;
     position: absolute;
     bottom: 23px;
     right: 15px;
-    transition: opacity 0.3s ease;
+    height: 48px;
+    width: 48px;
+    background-color: transparent; 
+    border: none; 
+    cursor: pointer; 
+
   }
+  .heartIcon {
+    transition: content 0.3s ease;
+
+    &:hover {
+      content: url("../../assets/heartFilled.png");
+    }
+  }
+
 }
