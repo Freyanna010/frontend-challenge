@@ -1,4 +1,5 @@
 import { FC, useEffect } from "react";
+// TODO: создать  модули
 import "./App.scss";
 import { AppDispatch, RootState } from "./store/store";
 import { fetchCatsData } from "./features/catsThunks";
@@ -33,7 +34,8 @@ const App: FC = () => {
         </Header>
         <Content className="content">
           {isCatsLoading ? (
-            <Spin 
+            //TODO: вынести
+            <Spin className="spinner"
               indicator={
                 <LoadingOutlined
                   style={{
