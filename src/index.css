@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -12,7 +13,8 @@ body {
   line-height: 1.6;
 }
 
-ul, ol {
+ul,
+ol {
   list-style-type: none;
 }
 

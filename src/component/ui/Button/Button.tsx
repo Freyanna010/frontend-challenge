@@ -1,23 +1,20 @@
 import clsx from "clsx";
-import React, { FC } from "react";
+import { FC } from "react";
 import classes from "./Button.module.scss";
+import { ButtonProps } from "./ButonTypes";
 
-type Props = {
-  variant: "text" | "icon";
-  isActive?: boolean;
-  onClick?: () => void;
-  children?: React.ReactNode;
-  className?: string; 
-};
-
-const CustomButton: FC<Props> = (props) => {
+const Button: FC<ButtonProps> = (props) => {
   const { variant, isActive, onClick, children, className } = props;
 
-  const buttonClassNames = clsx(classes.button, {
-    [classes.textButton]: variant === "text",
-    [classes.activeTextButton]: variant === "text" && isActive,
-    [classes.iconButton]: variant === "icon",
-  } , className);
+  const buttonClassNames = clsx(
+    classes.button,
+    {
+      [classes.textButton]: variant === "text",
+      [classes.activeTextButton]: variant === "text" && isActive,
+      [classes.iconButton]: variant === "icon",
+    },
+    className,
+  );
 
   return (
     <button className={buttonClassNames} onClick={onClick}>
@@ -26,4 +23,4 @@ const CustomButton: FC<Props> = (props) => {
   );
 };
 
-export default CustomButton;
+export default Button;

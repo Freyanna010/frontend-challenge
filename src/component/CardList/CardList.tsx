@@ -4,14 +4,13 @@ import { Flex, Spin } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
 import { LoadingOutlined } from "@ant-design/icons";
-import { fetchCatsData } from "@/features/catsThunks";
-import { toggleFavorite } from "@/features/catsSlice";
-import classes from  "./CardList.module.scss"
+import classes from "./CardList.module.scss";
+import { fetchCatsData, toggleFavorite } from "@/features";
 
 const CardList: FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { cats, isLoading, favoriteIds } = useSelector(
-    (state: RootState) => state.catsSlice
+    (state: RootState) => state.catsSlice,
   );
 
   useEffect(() => {
@@ -24,10 +23,10 @@ const CardList: FC = () => {
 
   if (isLoading) {
     return (
-      <Spin size="large" className={classes.spin}
-        indicator={
-          <LoadingOutlined spin  />
-        }
+      <Spin
+        size="large"
+        className={classes.spin}
+        indicator={<LoadingOutlined spin />}
       />
     );
   }

@@ -6,7 +6,7 @@ import axios from "axios";
 type Params = {
   limit?: number;
   offset?: number;
-}
+};
 
 export const fetchCatsData = createAsyncThunk<
   Cat[],
@@ -14,7 +14,7 @@ export const fetchCatsData = createAsyncThunk<
   { rejectValue: string }
 >("cats/fetchCatsData", async (params, { rejectWithValue }) => {
   try {
-    const { limit = 50, offset } = params || {}
+    const { limit = 50, offset } = params || {};
 
     const response = await axios.get(API_URL, {
       headers: {
@@ -29,7 +29,7 @@ export const fetchCatsData = createAsyncThunk<
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
       return rejectWithValue(
-        error.response?.data?.message || "Ошибка запроса котиков"
+        error.response?.data?.message || "Ошибка запроса котиков",
       );
     } else {
       return rejectWithValue("Неизвестная ошибка");

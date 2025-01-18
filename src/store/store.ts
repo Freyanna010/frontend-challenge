@@ -1,10 +1,9 @@
-import catsSlice from '@/features/catsSlice';
+import catsSlice from "@/features/catsSlice";
 import { configureStore } from "@reduxjs/toolkit";
-
 
 export const store = configureStore({
   reducer: {
-    catsSlice: catsSlice 
+    catsSlice: catsSlice,
   },
 });
 

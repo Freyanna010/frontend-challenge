@@ -4,12 +4,14 @@
   border-radius: 0%;
   overflow: hidden;
   position: relative;
-  transition: transform 0.3s ease, z-index 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    z-index 0.3s ease;
   display: inline-block;
   border: none;
 
   &:hover {
-    transform: scale(1.137); 
+    transform: scale(1.137);
     z-index: 1;
 
     .likeButton {
@@ -32,10 +34,9 @@
     right: 15px;
     height: 48px;
     width: 48px;
-    background-color: transparent; 
-    border: none; 
-    cursor: pointer; 
-
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
   }
   .heartIcon {
     transition: content 0.3s ease;
@@ -44,5 +45,4 @@
       content: url("../../assets/heartFilled.png");
     }
   }
-
 }
