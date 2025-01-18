@@ -27,12 +27,12 @@ const CatCard: FC<Props> = ({ id, img }) => {
   return (
     <Card className={classes.catCard} loading={isCatsLoading}>
       <img alt="🐱" src={img} />
-      <button className={classes.likeButton} onClick={() => handleLike(id)}>
-        <img
+      <CustomButton variant="icon" className={classes.likeButton}>
+      <img
           className={classes.heartIcon}
           src={isLiked ? heartFilled : heartOutlined}
         />
-      </button>
+      </CustomButton>
     </Card>
   );
 };
