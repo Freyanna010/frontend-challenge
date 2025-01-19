@@ -4,7 +4,7 @@ import { FC } from "react";
 import heartFilled from "@assets/heartFilled.png";
 import heartOutlined from "@assets/heartOutlined.png";
 import CustomButton from "../ui/Button";
-import { CardProps } from "./CardTypes";
+import { CardProps } from "./Card.types";
 
 const Card: FC<CardProps> = ({ img, isLiked, onLike }) => (
   <AntdCard className={classes.catCard}>

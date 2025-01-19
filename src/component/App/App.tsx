@@ -13,6 +13,7 @@ const App: FC = () => {
       <Layout className={classes.layout}>
         <Header setActiveTab={setActiveTab} tabs={TABS} activeTab={activeTab} />
         <Content className={classes.content}>
+          {/* TODO: передать activeTab */}
           {activeTab === "all" && <CardList />}
         </Content>
       </Layout>

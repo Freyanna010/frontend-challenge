@@ -11,12 +11,15 @@ import FlexContainer from "../ui/FlexContainer/FlexContainer";
 const CardList: FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { cats, isLoading, favoriteIds } = useSelector(
-    (state: RootState) => state.catsSlice,
+    (state: RootState) => state.catsSlice
   );
 
   useEffect(() => {
     dispatch(fetchCatsData());
   }, []);
+
+  //TODO: activeTab === "all"  showCats = cats  иначе - catsFavorite
+
 
   const likeHandler = (id: string) => {
     dispatch(toggleFavorite(id));
@@ -32,15 +35,15 @@ const CardList: FC = () => {
     );
   }
   return (
+    //TODO: перенести стили в лист
     <FlexContainer>
+      {/*TODO: вынести в компонент */}
       {cats.map(({ id, url }) => (
-        <div key={id} className="catCard">
-          <Card
-            img={url}
-            isLiked={favoriteIds.includes(id)}
-            onLike={() => likeHandler(id)}
-          />
-        </div>
+        <Card
+          img={url}
+          isLiked={favoriteIds.includes(id)}
+          onLike={() => likeHandler(id)}
+        />
       ))}
     </FlexContainer>
   );
