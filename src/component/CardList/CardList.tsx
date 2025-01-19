@@ -1,12 +1,12 @@
-import Card from "../Card/Card";
 import { FC, useEffect } from "react";
+import Card from "../Card/Card";
 import { Spin } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
 import { LoadingOutlined } from "@ant-design/icons";
 import classes from "./CardList.module.scss";
 import { fetchCatsData, toggleFavorite } from "@/features";
-import FlexContainer from "../ui/Button/FlexContainer/FlexContainer";
+import FlexContainer from "../ui/FlexContainer/FlexContainer";
 
 const CardList: FC = () => {
   const dispatch = useDispatch<AppDispatch>();

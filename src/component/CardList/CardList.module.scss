@@ -1,30 +1,6 @@
-.cardListContainer {
-  width: 1317px;
+.spin {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 48px;
-  margin-left: auto;
-  margin-right: auto;
-
-  @media (max-width: 1440px) {
-    width: calc(100% - 124px);
-    gap: 6px;
-  }
-
-  @media (max-width: 1024px) {
-    width: calc(100% - 48px);
-    gap: 16px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  @media (max-width: 768px) {
-    width: 100%;
-    padding: 0 16px;
-    gap: 16px;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-  }
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
