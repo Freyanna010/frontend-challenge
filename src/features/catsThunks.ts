@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-import { API_KEY, API_URL } from "@/constants/config";
+import { API_KEY, API_URL } from "@/constants";
 import { Cat } from "@/types/types";
 
 type Params = {

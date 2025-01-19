@@ -3,16 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { LoadingOutlined } from "@ant-design/icons";
 import { Spin } from "antd";
 
+import { CardListProps } from "./CardList.type";
 import Card from "../Card/Card";
 import FlexContainer from "../ui/FlexContainer/FlexContainer";
 import classes from "./CardList.module.scss";
 
 import { fetchCatsData, toggleFavorite } from "@/features";
 import { AppDispatch, RootState } from "@/store/store";
-
-type CardListProps = {
-  activeTab: string;
-};
 
 const CardList: FC<CardListProps> = ({ activeTab }) => {
   const dispatch = useDispatch<AppDispatch>();

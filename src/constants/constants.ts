@@ -6,3 +6,5 @@ export const TABS: Tab[] = [
 ];
 
 export const INITIAL_ACTIVE_TAB = "all";
+
+export const LIMIT_FETCH = 15;
