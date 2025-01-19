@@ -8,9 +8,13 @@ import classes from "./CardList.module.scss";
 import { fetchCatsData, toggleFavorite } from "@/features";
 import FlexContainer from "../ui/FlexContainer/FlexContainer";
 
-const CardList: FC = () => {
+type CardListProps = {
+  activeTab: string;
+};
+
+const CardList: FC<CardListProps> = ({ activeTab }) => {
   const dispatch = useDispatch<AppDispatch>();
-  const { cats, isLoading, favoriteIds } = useSelector(
+  const { cats, isLoading, favoriteIds, favoriteCats } = useSelector(
     (state: RootState) => state.catsSlice
   );
 
@@ -18,12 +22,11 @@ const CardList: FC = () => {
     dispatch(fetchCatsData());
   }, []);
 
-  //TODO: activeTab === "all"  showCats = cats  иначе - catsFavorite
-
-
   const likeHandler = (id: string) => {
     dispatch(toggleFavorite(id));
   };
+
+  const showCats = activeTab === "all" ? cats : favoriteCats;
 
   if (isLoading) {
     return (
@@ -35,10 +38,8 @@ const CardList: FC = () => {
     );
   }
   return (
-    //TODO: перенести стили в лист
     <FlexContainer>
-      {/*TODO: вынести в компонент */}
-      {cats.map(({ id, url }) => (
+      {showCats.map(({ id, url }) => (
         <Card
           img={url}
           isLiked={favoriteIds.includes(id)}

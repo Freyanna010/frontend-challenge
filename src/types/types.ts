@@ -11,4 +11,5 @@ export interface CatsState {
   isLoading: boolean;
   catsError: null | string;
   favoriteIds: string[];
+  favoriteCats: Cat[]
 }
