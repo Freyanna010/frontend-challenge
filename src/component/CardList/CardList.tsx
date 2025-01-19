@@ -1,12 +1,14 @@
 import { FC, useEffect } from "react";
-import Card from "../Card/Card";
-import { Spin } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "@/store/store";
 import { LoadingOutlined } from "@ant-design/icons";
-import classes from "./CardList.module.scss";
-import { fetchCatsData, toggleFavorite } from "@/features";
+import { Spin } from "antd";
+
+import Card from "../Card/Card";
 import FlexContainer from "../ui/FlexContainer/FlexContainer";
+import classes from "./CardList.module.scss";
+
+import { fetchCatsData, toggleFavorite } from "@/features";
+import { AppDispatch, RootState } from "@/store/store";
 
 type CardListProps = {
   activeTab: string;
@@ -15,12 +17,12 @@ type CardListProps = {
 const CardList: FC<CardListProps> = ({ activeTab }) => {
   const dispatch = useDispatch<AppDispatch>();
   const { cats, isLoading, favoriteIds, favoriteCats } = useSelector(
-    (state: RootState) => state.catsSlice
+    (state: RootState) => state.catsSlice,
   );
 
   useEffect(() => {
     dispatch(fetchCatsData());
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const likeHandler = (id: string) => {
     dispatch(toggleFavorite(id));
@@ -31,9 +33,9 @@ const CardList: FC<CardListProps> = ({ activeTab }) => {
   if (isLoading) {
     return (
       <Spin
-        size="large"
         className={classes.spin}
         indicator={<LoadingOutlined spin />}
+        size="large"
       />
     );
   }
@@ -43,6 +45,7 @@ const CardList: FC<CardListProps> = ({ activeTab }) => {
         <Card
           img={url}
           isLiked={favoriteIds.includes(id)}
+          key={id}
           onLike={() => likeHandler(id)}
         />
       ))}

@@ -1,5 +1,5 @@
-import { Skeleton } from 'antd';
-import { useState } from 'react';
+import { useState } from "react";
+import { Skeleton } from "antd";
 
 const Image = (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
   const { ...imgProps } = props;
@@ -15,13 +15,13 @@ const Image = (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
 
   return (
     <>
-      {!isLoad &&<Skeleton.Node active style={{width: 225, height:225}} />}
+      {!isLoad && <Skeleton.Node active style={{ width: 225, height: 225 }} />}
       <img
         {...imgProps}
-        style={{ display: isLoad ? 'block' : 'none' }}
-        onLoad={handleImageLoad}
-        onError={handleImageError}
         alt="Loading..."
+        onError={handleImageError}
+        onLoad={handleImageLoad}
+        style={{ display: isLoad ? "block" : "none" }}
       />
     </>
   );

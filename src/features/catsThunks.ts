@@ -1,7 +1,8 @@
-import { API_KEY, API_URL } from "@/constants/config";
-import { Cat } from "@/types/types";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+
+import { API_KEY, API_URL } from "@/constants/config";
+import { Cat } from "@/types/types";
 
 type Params = {
   limit?: number;

@@ -6,10 +6,11 @@ export interface Cat {
   breeds?: string[];
   favourite?: object;
 }
+
 export interface CatsState {
   cats: Cat[];
   isLoading: boolean;
   catsError: null | string;
   favoriteIds: string[];
-  favoriteCats: Cat[]
+  favoriteCats: Cat[];
 }

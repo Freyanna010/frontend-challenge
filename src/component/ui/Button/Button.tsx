@@ -1,7 +1,8 @@
-import clsx from "clsx";
 import { FC } from "react";
-import classes from "./Button.module.scss";
+import clsx from "clsx";
+
 import { ButtonProps } from "./Buton.types";
+import classes from "./Button.module.scss";
 
 const Button: FC<ButtonProps> = (props) => {
   const { variant, isActive, onClick, children, className } = props;

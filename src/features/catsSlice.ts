@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
 import { fetchCatsData } from "./catsThunks";
+
 import { Cat, CatsState } from "@/types/types";
 
 const initialState: CatsState = {
@@ -17,13 +19,13 @@ const catsSlice = createSlice({
     toggleFavorite: (state, action: PayloadAction<string>) => {
       if (state.favoriteIds.includes(action.payload)) {
         state.favoriteIds = state.favoriteIds.filter(
-          (id) => id !== action.payload
+          (id) => id !== action.payload,
         );
       } else {
         state.favoriteIds.push(action.payload);
       }
       state.favoriteCats = state.cats.filter((cat) =>
-        state.favoriteIds.includes(cat.id)
+        state.favoriteIds.includes(cat.id),
       );
     },
   },
@@ -40,9 +42,9 @@ const catsSlice = createSlice({
           state.cats = action.payload;
 
           state.favoriteCats = action.payload.filter((cat) =>
-            state.favoriteIds.includes(cat.id)
+            state.favoriteIds.includes(cat.id),
           );
-        }
+        },
       )
       .addCase(fetchCatsData.rejected, (state, action) => {
         state.isLoading = false;
@@ -52,4 +54,5 @@ const catsSlice = createSlice({
 });
 
 export const { toggleFavorite } = catsSlice.actions;
+
 export default catsSlice.reducer;

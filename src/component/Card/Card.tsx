@@ -1,20 +1,21 @@
-import { Card as AntdCard } from "antd";
-import classes from "./Card.module.scss";
 import { FC } from "react";
 import heartFilled from "@assets/heartFilled.png";
 import heartOutlined from "@assets/heartOutlined.png";
-import CustomButton from "../ui/Button";
+import { Card as AntdCard } from "antd";
+
 import { CardProps } from "./Card.types";
+import CustomButton from "../ui/Button";
 import Image from "../ui/Image";
+import classes from "./Card.module.scss";
 
 const Card: FC<CardProps> = ({ img, isLiked, onLike }) => (
   <AntdCard className={classes.catCard}>
     {/* <img src={img} /> */}
-    <Image src={img} alt="Cat" className={classes.img}/>
-     <CustomButton
-      variant="icon"
+    <Image alt="Cat" className={classes.img} src={img} />
+    <CustomButton
       className={classes.likeButton}
       onClick={() => onLike?.()}
+      variant="icon"
     >
       <img
         className={classes.heartIcon}

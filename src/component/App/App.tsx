@@ -1,8 +1,10 @@
 import { FC, useState } from "react";
-import classes from "./App.module.scss";
-import CardList from "../CardList/CardList";
 import Layout, { Content } from "antd/es/layout/layout";
+
+import CardList from "../CardList/CardList";
 import Header from "../Header";
+import classes from "./App.module.scss";
+
 import { INITIAL_ACTIVE_TAB, TABS } from "@/constants/constants";
 
 const App: FC = () => {
@@ -11,7 +13,7 @@ const App: FC = () => {
   return (
     <>
       <Layout className={classes.layout}>
-        <Header setActiveTab={setActiveTab} tabs={TABS} activeTab={activeTab} />
+        <Header activeTab={activeTab} setActiveTab={setActiveTab} tabs={TABS} />
         <Content className={classes.content}>
           {<CardList activeTab={activeTab} />}
         </Content>
