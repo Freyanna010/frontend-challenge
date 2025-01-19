@@ -3,13 +3,31 @@ html {
   height: 100%;
   display: flex;
   justify-content: center;
+  margin: 0;
 }
 
 .layout {
   width: 1440px;
   background-color: #fff;
+  margin: 0 auto;
+
+  @media (max-width: 1440px) {
+    width: 100%;
+    padding: 0px;
+  }
 }
 
 .content {
   padding: 36px 62px 102px 62px;
+  @media (max-width: 1440px) {
+    padding: 0;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 0;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0;
+  }
 }

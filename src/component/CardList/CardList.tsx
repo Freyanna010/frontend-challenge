@@ -1,6 +1,6 @@
 import Card from "../Card/Card";
 import { FC, useEffect } from "react";
-import { Flex, Spin } from "antd";
+import { Spin } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
 import { LoadingOutlined } from "@ant-design/icons";
@@ -32,7 +32,7 @@ const CardList: FC = () => {
   }
   return (
     // TODO: адаптив
-    <Flex wrap gap={48} justify="space-between" style={{ width: "1317px" }}>
+    <div className={classes.cardListContainer}>
       {cats.map(({ id, url }) => (
         <Card
           img={url}
@@ -41,7 +41,7 @@ const CardList: FC = () => {
           onLike={() => likeHandler(id)}
         />
       ))}
-    </Flex>
+    </div>
   );
 };
 export default CardList;
