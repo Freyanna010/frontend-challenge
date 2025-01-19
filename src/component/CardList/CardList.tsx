@@ -6,6 +6,7 @@ import { AppDispatch, RootState } from "@/store/store";
 import { LoadingOutlined } from "@ant-design/icons";
 import classes from "./CardList.module.scss";
 import { fetchCatsData, toggleFavorite } from "@/features";
+import FlexContainer from "../ui/Button/FlexContainer/FlexContainer";
 
 const CardList: FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -31,17 +32,17 @@ const CardList: FC = () => {
     );
   }
   return (
-    // TODO: адаптив
-    <div className={classes.cardListContainer}>
+    <FlexContainer>
       {cats.map(({ id, url }) => (
-        <Card
-          img={url}
-          key={id}
-          isLiked={favoriteIds.includes(id)}
-          onLike={() => likeHandler(id)}
-        />
+        <div key={id} className="catCard">
+          <Card
+            img={url}
+            isLiked={favoriteIds.includes(id)}
+            onLike={() => likeHandler(id)}
+          />
+        </div>
       ))}
-    </div>
+    </FlexContainer>
   );
 };
 export default CardList;
