@@ -1,0 +1,36 @@
+@import "../../styles/variables.scss";
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.textButton {
+  height: 100%;
+  color: #fff;
+  font: $font-base;
+  padding: 23px;
+  border-radius: 0px;
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+}
+
+.activeTextButton {
+  background-color: $secondary-color;
+}
+
+.iconButton {
+  background-color: transparent;
+
+  img {
+    width: 48px;
+    height: 48px;
+  }
+}
