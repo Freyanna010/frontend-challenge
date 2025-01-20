@@ -1,3 +1,4 @@
+@import "../styles/variables.scss";
 .catCard {
   width: 225px;
   height: 225px;
@@ -12,7 +13,7 @@
 
   &:hover {
     transform: scale(1.137);
-    box-shadow: 0px 2px 5px 3px rgba(31, 31, 31, 0.3);
+    box-shadow: $box-shadow-large;
     z-index: 1;
 
     .likeButton {

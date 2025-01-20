@@ -1,19 +1,15 @@
 import { FC } from "react";
-import clsx from "clsx";
 
-import { ButtonProps } from "./Buton.types";
-import classes from "./Button.module.scss";
+import { ButtonProps } from "./Button.types";
+import getButtonClassNames from "./getButtonClassNames";
 
 const Button: FC<ButtonProps> = (props) => {
-  const { variant, isActive, onClick, children, className } = props;
+  const { variant, isActive = false, onClick, children, className } = props;
 
-  const buttonClassNames = clsx(
-    classes.button,
-    {
-      [classes.textButton]: variant === "text",
-      [classes.activeTextButton]: variant === "text" && isActive,
-      [classes.iconButton]: variant === "icon",
-    },
+  const buttonClassNames = getButtonClassNames(
+    variant,
+    isActive,
+    "button",
     className,
   );
 

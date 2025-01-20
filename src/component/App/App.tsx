@@ -5,7 +5,7 @@ import CardList from "../CardList/CardList";
 import Header from "../Header";
 import classes from "./App.module.scss";
 
-import { INITIAL_ACTIVE_TAB, TABS } from "@/constants/constants";
+import { INITIAL_ACTIVE_TAB, TABS } from "@/constants";
 
 const App: FC = () => {
   const [activeTab, setActiveTab] = useState(INITIAL_ACTIVE_TAB);

@@ -1,4 +1,5 @@
-/* header.module.scss */
+@import "../styles/variables.scss";
+
 .header {
   position: sticky;
   top: 0;
@@ -8,7 +9,7 @@
   justify-content: flex-start;
   align-items: center;
   padding: 0px 0px 0px 62px;
-  background-color: #2196f3;
+  background-color: $primary-color;
 
   @media (max-width: 1024px) {
     padding: 0 24px;

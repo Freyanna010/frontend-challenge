@@ -9,7 +9,7 @@ import FlexContainer from "../ui/FlexContainer/FlexContainer";
 import classes from "./CardList.module.scss";
 
 import { fetchCatsData, toggleFavorite } from "@/features";
-import { AppDispatch, RootState } from "@/store/store";
+import { AppDispatch, RootState } from "@/store";
 
 const CardList: FC<CardListProps> = ({ activeTab }) => {
   const dispatch = useDispatch<AppDispatch>();
@@ -19,7 +19,7 @@ const CardList: FC<CardListProps> = ({ activeTab }) => {
 
   useEffect(() => {
     dispatch(fetchCatsData());
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [dispatch]);
 
   const likeHandler = (id: string) => {
     dispatch(toggleFavorite(id));
