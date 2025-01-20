@@ -19,7 +19,7 @@ const CardList: FC<CardListProps> = ({ activeTab }) => {
 
   useEffect(() => {
     dispatch(fetchCatsData());
-    console.log("test log");
+    console.log("test1 log");
     
   }, [dispatch]);
 
@@ -28,6 +28,7 @@ const CardList: FC<CardListProps> = ({ activeTab }) => {
   };
 
   const showCats = activeTab === "all" ? cats : favoriteCats;
+  console.log("test2 log");
 
   if (isLoading) {
     return (
