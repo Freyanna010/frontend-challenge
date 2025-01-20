@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Freyanna010.github.io/frontend-challenge",  
+  "homepage": "https://freyanna010.github.io/frontend-challenge",
   "scripts": {
     "predeploy": "yarn build",
     "deploy": "gh-pages -d dist",
