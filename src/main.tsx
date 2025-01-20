@@ -1,5 +1,4 @@
 import { Provider as StoreProvider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
 import { createRoot } from "react-dom/client";
 
 import "./index.css";

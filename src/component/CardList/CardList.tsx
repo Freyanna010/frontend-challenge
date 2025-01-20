@@ -19,6 +19,8 @@ const CardList: FC<CardListProps> = ({ activeTab }) => {
 
   useEffect(() => {
     dispatch(fetchCatsData());
+    console.log("test log");
+    
   }, [dispatch]);
 
   const likeHandler = (id: string) => {
