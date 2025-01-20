@@ -1,4 +1,5 @@
-@import "../styles/variables.scss";
+@use "../styles/variables" as *;
+
 .catCard {
   width: 225px;
   height: 225px;
