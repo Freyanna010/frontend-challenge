@@ -19,7 +19,6 @@ const CardList: FC<CardListProps> = ({ activeTab }) => {
 
   useEffect(() => {
     dispatch(fetchCatsData());
-      
   }, [dispatch]);
 
   const likeHandler = (id: string) => {
@@ -27,7 +26,7 @@ const CardList: FC<CardListProps> = ({ activeTab }) => {
   };
 
   const showCats = activeTab === "all" ? cats : favoriteCats;
-  console.log("test2 log");
+
 
   if (isLoading) {
     return (
